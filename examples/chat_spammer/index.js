@@ -18,13 +18,13 @@ const main = () => {
   bot.once("login", async () => {
     bot.chat("/login " + config.password);
     // wait a second
-    bot.waitForTIcks(40);
+    await bot.waitForTicks(40);
     while (True) {
       // select random message from config
       const message = config.messages[Math.floor(Math.random() * config.messages.length)];
       console.log(message);
       bot.chat(message);
-      bot.waitForTicks(config.delay);
+      await bot.waitForTicks(config.delay);
     }
   });
 
